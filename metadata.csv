@@ -1,0 +1,31 @@
+Declare,metatab-latest
+Title,Distressed Tracts By County
+Description,"Counts of FFEIC distressed tracts, by county. "
+Identifier,9df76012-f8d6-426d-abd2-233bdc326453
+Name,civicknowledge.com-distressed-county-1.1.1
+Dataset,distressed
+Origin,civicknowledge.com
+Time,
+Space,
+Grain,county
+Variant,
+Version,1.1.1
+Version.Major,1
+Version.Minor,1
+Version.Patch,1
+Created,2020-05-26T20:24:59
+Modified,2020-05-26T20:25:00
+Giturl,https://github.com/CivicKnowledge/tablecloth.io-collection.git
+
+Section,Contacts,Email,Organization,Url
+Wrangler,Eric Busboom,eric@civicknowledge.com,Civic Knowledge,http://civicknowledge.com
+
+Section,Documentation,Title,Description,
+Documentation,file:README.md,README,,
+
+Section,References,Name,Description,
+Reference,metapack+http://library.metatab.org/ffeic.gov-census-tract.csv#ffeic_distressed,ffeic_distressed,"Flags indicating FFEIC ""distressed"" designations, per tract. "
+
+Section,Resources,Name,Description,
+
+Section,Schema,DataType,AltName,Description
