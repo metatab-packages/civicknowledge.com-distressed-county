@@ -1,20 +1,20 @@
 Declare,metatab-latest
 Title,Distressed Tracts By County
-Description,"Counts of FFEIC distressed tracts, by county. "
+Description,"Counts of FFEIC distressed tracts, by county."
 Identifier,9df76012-f8d6-426d-abd2-233bdc326453
-Name,civicknowledge.com-distressed-county-1.1.1
+Name,civicknowledge.com-distressed-county-1.1.5
 Dataset,distressed
 Origin,civicknowledge.com
 Time,
 Space,
 Grain,county
 Variant,
-Version,1.1.1
+Version,1.1.5
 Version.Major,1
 Version.Minor,1
-Version.Patch,1
+Version.Patch,5
 Created,2020-05-26T20:24:59
-Modified,2020-05-26T20:25:00
+Modified,2020-06-25T15:40:00
 Giturl,https://github.com/CivicKnowledge/tablecloth.io-collection.git
 
 Section,Contacts,Email,Organization,Url
@@ -22,10 +22,47 @@ Wrangler,Eric Busboom,eric@civicknowledge.com,Civic Knowledge,http://civicknowle
 
 Section,Documentation,Title,Description,
 Documentation,file:README.md,README,,
+Image,doc/sample.png,Distressed Population,Percentage of Poverty Distressed Population Per County,
 
 Section,References,Name,Description,
-Reference,metapack+http://library.metatab.org/ffeic.gov-census-tract.csv#ffeic_distressed,ffeic_distressed,"Flags indicating FFEIC ""distressed"" designations, per tract. "
+Reference,metapack+http://library.metatab.org/ffeic.gov-census-tract.csv#ffeic_distressed,ffeic_distressed,"Flags indicating FFEIC ""distressed"" designations, per tract.",
+Reference,metapack+http://library.metatab.org/census.gov-boundaries-2018.csv#county_500k,county_500k,County Boundaries,
 
 Section,Resources,Name,Description,
+Datafile,notebooks/Aggregate.ipynb#df,distressed_counties,Aggregation of FFEIC distressed tracts into counties,
 
-Section,Schema,DataType,AltName,Description
+Section,Schema,DataType,Description,,
+Table,distressed_counties,,,,
+Table.Column,geoid,string,County geoid,,
+Table.Column,stusab,string,State postal abbreviation,,
+Table.Column,state,integer,State FIPS code,,
+Table.Column,county,integer,County FIPS code,,
+Table.Column,year,integer,Year values were observed,,
+Table.Column,current_prior_distressed,integer,"Count of tracts in county with flag: Meets at least one of current or previous year's CRA distressed/underserved tract criteria?  'X' - Yes, ' ' (blank space) - No",,
+Table.Column,current_prior_distressed_pct,number,"Percentage of tracts in county with flag: Meets at least one of current or previous year's CRA distressed/underserved tract criteria?  'X' - Yes, ' ' (blank space) - No",,
+Table.Column,current_prior_distressed_pop,integer,"Population in county in tracts with flag: Meets at least one of current or previous year's CRA distressed/underserved tract criteria?  'X' - Yes, ' ' (blank space) - No",,
+Table.Column,current_prior_distressed_pop_pct,number,"Percentage of population in county in tracts with flag: Meets at least one of current or previous year's CRA distressed/underserved tract criteria?  'X' - Yes, ' ' (blank space) - No",,
+Table.Column,last_year_distressed,integer,"Count of tracts in county with flag: Meets at least one of the previous year's CRA distressed criteria?  'X' - Yes , ' ' (blank space) - No",,
+Table.Column,last_year_distressed_pct,number,"Percentage of tracts in county with flag: Meets at least one of the previous year's CRA distressed criteria?  'X' - Yes , ' ' (blank space) - No",,
+Table.Column,last_year_distressed_pop,integer,"Population in county in tracts with flag: Meets at least one of the previous year's CRA distressed criteria?  'X' - Yes , ' ' (blank space) - No",,
+Table.Column,last_year_distressed_pop_pct,number,"Percentage of population in county in tracts with flag: Meets at least one of the previous year's CRA distressed criteria?  'X' - Yes , ' ' (blank space) - No",,
+Table.Column,last_year_underserved,integer,"Count of tracts in county with flag: Meets previous year's CRA underserved criterion?  'X' - Yes , ' ' (blank space) - No",,
+Table.Column,last_year_underserved_pct,number,"Percentage of tracts in county with flag: Meets previous year's CRA underserved criterion?  'X' - Yes , ' ' (blank space) - No",,
+Table.Column,last_year_underserved_pop,integer,"Population in county in tracts with flag: Meets previous year's CRA underserved criterion?  'X' - Yes , ' ' (blank space) - No",,
+Table.Column,last_year_underserved_pop_pct,number,"Percentage of population in county in tracts with flag: Meets previous year's CRA underserved criterion?  'X' - Yes , ' ' (blank space) - No",,
+Table.Column,population_distressed,integer,Count of tracts in county with flag: Total persons,,
+Table.Column,population_distressed_pct,number,Percentage of tracts in county with flag: Total persons,,
+Table.Column,population_distressed_pop,integer,Population in county in tracts with flag: Total persons,,
+Table.Column,population_distressed_pop_pct,number,Percentage of population in county in tracts with flag: Total persons,,
+Table.Column,poverty_distressed,integer,"Count of tracts in county with flag: Meets current year's poverty CRA distressed criterion?  'X' - Yes , ' ' (blank space) - No",,
+Table.Column,poverty_distressed_pct,number,"Percentage of tracts in county with flag: Meets current year's poverty CRA distressed criterion?  'X' - Yes , ' ' (blank space) - No",,
+Table.Column,poverty_distressed_pop,integer,"Population in county in tracts with flag: Meets current year's poverty CRA distressed criterion?  'X' - Yes , ' ' (blank space) - No",,
+Table.Column,poverty_distressed_pop_pct,number,"Percentage of population in county in tracts with flag: Meets current year's poverty CRA distressed criterion?  'X' - Yes , ' ' (blank space) - No",,
+Table.Column,rural_underserved,integer,"Count of tracts in county with flag: Meets current year's remote rural (low density) CRA underserved criterion?  'X' -Yes, ' ' (blank space) - No",,
+Table.Column,rural_underserved_pct,number,"Percentage of tracts in county with flag: Meets current year's remote rural (low density) CRA underserved criterion?  'X' -Yes, ' ' (blank space) - No",,
+Table.Column,rural_underserved_pop,integer,"Population in county in tracts with flag: Meets current year's remote rural (low density) CRA underserved criterion?  'X' -Yes, ' ' (blank space) - No",,
+Table.Column,rural_underserved_pop_pct,number,"Percentage of population in county in tracts with flag: Meets current year's remote rural (low density) CRA underserved criterion?  'X' -Yes, ' ' (blank space) - No",,
+Table.Column,unemployment_distressed,integer,"Count of tracts in county with flag: Meets current year's unemployment CRA distressed criterion?  'X' - Yes , ' ' (blank space) - No",,
+Table.Column,unemployment_distressed_pct,number,"Percentage of tracts in county with flag: Meets current year's unemployment CRA distressed criterion?  'X' - Yes , ' ' (blank space) - No",,
+Table.Column,unemployment_distressed_pop,integer,"Population in county in tracts with flag: Meets current year's unemployment CRA distressed criterion?  'X' - Yes , ' ' (blank space) - No",,
+Table.Column,unemployment_distressed_pop_pct,number,"Percentage of population in county in tracts with flag: Meets current year's unemployment CRA distressed criterion?  'X' - Yes , ' ' (blank space) - No",,
